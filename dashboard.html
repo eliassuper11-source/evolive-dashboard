@@ -6,41 +6,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
-:root {
-  --bg:        #081820;
-  --bg2:       #0F2F3A;
-  --bg3:       #122535;
-  --bg4:       #1a3545;
-  --turquesa:  #1EC7B6;
-  --turq-bg:   rgba(30,199,182,0.08);
-  --turq-glow: rgba(30,199,182,0.2);
-  --branco:    #FFFFFF;
-  --cinza1:    #F4F4F4;
-  --cinza3:    #aaaaaa;
-  --cinza4:    #666666;
-  --azul-g:    #4285f4;
-  --roxo-m:    #9b59b6;
-  --verde-w:   #25d366;
-  --ok:        #22c55e;
-  --warn:      #f59e0b;
-  --bad:       #ef4444;
-  --ok-bg:     rgba(34,197,94,0.12);
-  --warn-bg:   rgba(245,158,11,0.12);
-  --bad-bg:    rgba(239,68,68,0.12);
-}
+:root{--bg:#081820;--bg2:#0F2F3A;--bg3:#122535;--bg4:#1a3545;--turquesa:#1EC7B6;--turq-bg:rgba(30,199,182,0.08);--turq-glow:rgba(30,199,182,0.2);--branco:#FFFFFF;--cinza1:#F4F4F4;--cinza3:#aaaaaa;--cinza4:#666666;--azul-g:#4285f4;--roxo-m:#9b59b6;--verde-w:#25d366;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--ok-bg:rgba(34,197,94,0.12);--warn-bg:rgba(245,158,11,0.12);--bad-bg:rgba(239,68,68,0.12)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--branco);font-family:'DM Sans',sans-serif;min-height:100vh}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 15% 60%,rgba(30,199,182,0.05) 0%,transparent 50%),radial-gradient(circle at 85% 10%,rgba(30,199,182,0.03) 0%,transparent 40%);pointer-events:none;z-index:0}
-
-/* LOADING */
 #loading{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:20px}
 .loading-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:36px;color:var(--turquesa);letter-spacing:-1px}
 .loading-bar{width:220px;height:2px;background:var(--bg4);border-radius:2px;overflow:hidden}
 .loading-fill{height:100%;background:var(--turquesa);border-radius:2px;animation:loadbar 1.6s ease-in-out infinite}
 @keyframes loadbar{0%{width:0%;margin-left:0}60%{width:60%;margin-left:20%}100%{width:0%;margin-left:100%}}
 .loading-text{font-size:12px;color:var(--cinza4);font-family:'DM Mono',monospace}
-
-/* HEADER */
 header{position:sticky;top:0;z-index:100;background:rgba(8,24,32,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,199,182,0.12);padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:13px}
 .logo-mark{width:34px;height:34px;background:var(--turquesa);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--bg);letter-spacing:-1px}
@@ -53,16 +28,10 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,24,32,0.95);backdrop-
 .last-update{font-size:11px;color:var(--cinza4);font-family:'DM Mono',monospace}
 .btn-refresh{background:var(--bg4);border:1px solid rgba(255,255,255,0.08);color:var(--cinza3);border-radius:8px;padding:7px 13px;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;gap:5px}
 .btn-refresh:hover{background:var(--turquesa);color:var(--bg);border-color:var(--turquesa)}
-
-/* LAYOUT */
 main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:0 auto}
 .section-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--turquesa);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(30,199,182,0.35),transparent)}
-
-/* ERRO */
 #error-msg{display:none;background:var(--bad-bg);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:14px 18px;color:var(--bad);font-size:13px;margin-bottom:20px;line-height:1.6}
-
-/* SCORECARDS */
 .scorecards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
 .card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
 .card:hover{transform:translateY(-2px);border-color:rgba(30,199,182,0.25)}
@@ -83,8 +52,6 @@ main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:
 .metric{display:flex;flex-direction:column;gap:2px}
 .metric-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500}
 .metric-label{font-size:9px;color:var(--cinza4);text-transform:uppercase;letter-spacing:.5px}
-
-/* GRAFICOS */
 .charts-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:30px}
 .chart-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:22px}
 .chart-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
@@ -93,8 +60,6 @@ main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:
 .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
 .legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--cinza3)}
 .legend-dot{width:8px;height:8px;border-radius:2px}
-
-/* TABELAS SEMANAIS */
 .tables-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px}
 .table-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden}
 .table-card.destaque{border-color:rgba(30,199,182,0.35);box-shadow:0 0 0 1px rgba(30,199,182,0.08),0 4px 20px rgba(30,199,182,0.06)}
@@ -117,8 +82,6 @@ tbody td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-weigh
 .delta-up{color:var(--ok)}.delta-dn{color:var(--bad)}.delta-eq{color:var(--cinza4)}
 tfoot td{padding:9px 14px;font-size:12px;font-weight:600;text-align:right;border-top:1px solid rgba(255,255,255,0.08);font-family:'DM Mono',monospace;color:var(--turquesa)}
 tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10px;letter-spacing:.5px;text-transform:uppercase}
-
-/* RESUMO MENSAL */
 .monthly-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:30px}
 .monthly-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:22px}
 .monthly-card.vendas{background:linear-gradient(135deg,#041820,var(--bg3));border-color:rgba(30,199,182,0.15)}
@@ -128,23 +91,18 @@ tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10p
 .monthly-lbl{font-size:10px;color:var(--cinza4);text-transform:uppercase;letter-spacing:.5px}
 .vendas-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:110px;gap:10px;color:var(--cinza4);text-align:center}
 .vendas-tag{font-size:10px;background:var(--turq-bg);color:var(--turquesa);border:1px solid rgba(30,199,182,0.2);padding:4px 10px;border-radius:20px;font-weight:600;letter-spacing:.5px}
-
-/* ANIM */
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .45s ease both}
 .d1{animation-delay:.04s}.d2{animation-delay:.09s}.d3{animation-delay:.14s}.d4{animation-delay:.19s}.d5{animation-delay:.24s}
-
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
 </style>
 </head>
 <body>
-
 <div id="loading">
   <div class="loading-logo">EVOLIVE</div>
   <div class="loading-bar"><div class="loading-fill"></div></div>
   <div class="loading-text" id="ltxt">Conectando ao proxy...</div>
 </div>
-
 <header>
   <div class="logo">
     <div class="logo-mark">EV</div>
@@ -156,11 +114,8 @@ tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10p
     <button class="btn-refresh" onclick="loadData()">↻ Atualizar</button>
   </div>
 </header>
-
 <main id="app" style="display:none">
   <div id="error-msg"></div>
-
-  <!-- SCORECARDS — semana em destaque -->
   <div class="section-label">Última Semana Fechada — <span id="lbl-sem-dest" style="color:var(--cinza3);font-weight:400;letter-spacing:0;text-transform:none;font-family:'DM Mono',monospace;font-size:11px">—</span></div>
   <div class="scorecards">
     <div class="card card-google fade-up d1">
@@ -188,8 +143,6 @@ tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10p
       <div class="card-metrics"><div class="metric"><div class="metric-val" id="it">—</div><div class="metric-label">Investido</div></div><div class="metric"><div class="metric-val" id="ct">—</div><div class="metric-label">CPL Médio</div></div><div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">125/dia</div><div class="metric-label">meta leads</div></div></div>
     </div>
   </div>
-
-  <!-- GRAFICOS -->
   <div class="section-label">Evolução do Mês Atual</div>
   <div class="charts-grid fade-up d3">
     <div class="chart-card">
@@ -208,8 +161,6 @@ tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10p
       <div style="height:230px"><canvas id="chart-cpl"></canvas></div>
     </div>
   </div>
-
-  <!-- TABELAS COMPARATIVAS -->
   <div class="section-label">Comparativo de Semanas Fechadas</div>
   <div class="tables-grid fade-up d4">
     <div class="table-card destaque">
@@ -237,8 +188,6 @@ tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10p
       <tbody id="tb-s3"></tbody><tfoot id="tf-s3"></tfoot></table>
     </div>
   </div>
-
-  <!-- RESUMO MENSAL -->
   <div class="section-label">Resumo do Mês</div>
   <div class="monthly-grid fade-up d5">
     <div class="monthly-card">
@@ -257,252 +206,125 @@ tfoot td:first-child{text-align:left;font-family:'Syne',sans-serif;font-size:10p
     </div>
   </div>
 </main>
-
 <script>
-// ══════════════════════════════════════════════════════════════════
-// CONFIGURAÇÃO — substitua pela URL do seu Apps Script publicado
-// ══════════════════════════════════════════════════════════════════
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbyVMyhLWTDBzk-iC4EeVQa2bzVEmXe-OjwvwffbKnRxvA-qwqmLzQeiuZRDX3oRp71H/exec';
-
-const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-
-function fR(v){ return 'R$ '+Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
-function fN(v){ return Number(v||0).toLocaleString('pt-BR'); }
-
-// ── Carrega dados via proxy ───────────────────────────────────────
+const PROXY_URL='https://script.google.com/macros/s/AKfycbyVMyhLWTDBzk-iC4EeVQa2bzVEmXe-OjwvwffbKnRxvA-qwqmLzQeiuZRDX3oRp71H/exec';
+const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+function fR(v){return 'R$ '+Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 async function loadData(){
   document.getElementById('loading').style.display='flex';
   document.getElementById('app').style.display='none';
   document.getElementById('ltxt').textContent='Conectando ao proxy...';
-
-  if(PROXY_URL==='https://script.google.com/macros/s/AKfycbyVMyhLWTDBzk-iC4EeVQa2bzVEmXe-OjwvwffbKnRxvA-qwqmLzQeiuZRDX3oRp71H/exec'){
-    showError('Configure o PROXY_URL: siga as instruções do arquivo LEIA_PRIMEIRO.md para criar o Apps Script e cole a URL aqui.');
-    return;
-  }
-
-  try {
+  try{
     document.getElementById('ltxt').textContent='Buscando dados...';
-    const res  = await fetch(PROXY_URL);
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if(data.error) throw new Error(data.error);
-
+    const res=await fetch(PROXY_URL);
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const data=await res.json();
+    if(data.error)throw new Error(data.error);
     document.getElementById('ltxt').textContent='Processando...';
     render(data);
-  } catch(e){
-    showError(`Erro ao carregar dados: ${e.message}<br><br>
-      <b>Passos para resolver:</b><br>
-      1. Crie o Apps Script conforme LEIA_PRIMEIRO.md<br>
-      2. Publique como Web App (acesso: Qualquer pessoa)<br>
-      3. Cole a URL gerada onde está https://script.google.com/macros/s/AKfycbyVMyhLWTDBzk-iC4EeVQa2bzVEmXe-OjwvwffbKnRxvA-qwqmLzQeiuZRDX3oRp71H/exec no HTML`);
-  }
+  }catch(e){showError('Erro: '+e.message);}
 }
-
 function showError(msg){
   document.getElementById('loading').style.display='none';
   document.getElementById('app').style.display='block';
   const e=document.getElementById('error-msg');
-  e.style.display='block'; e.innerHTML=msg;
+  e.style.display='block';e.innerHTML=msg;
 }
-
-// ── Render principal ──────────────────────────────────────────────
 function render(data){
-  const { metas, rows } = data;
-
-  // Converte data string → objeto Date
-  rows.forEach(r => { r.dt = new Date(r.data+'T00:00:00'); });
-
-  // Atualiza labels de meta
-  document.getElementById('mg').textContent = metas.google;
-  document.getElementById('mm').textContent = metas.meta;
-  document.getElementById('mw').textContent = metas.wa;
-  document.getElementById('mt').textContent = metas.total;
-
-  // ── Identifica semanas fechadas ───────────────────────────────
-  // Semana "em andamento" = semana do último dia com dados
-  const rowsComDados = rows.filter(r => r.totLeads>0 || r.gLeads>0 || r.mLeads>0 || r.wLeads>0);
-  const semsComDados = [...new Set(rowsComDados.map(r=>r.sem))].sort((a,b)=>a-b);
-
-  // Última semana = pode estar em andamento
-  // Semanas fechadas = semanas que não são a última em andamento
-  // Consideramos que a semana está "fechada" se ela não é a semana corrente do calendario
-  const hoje = new Date();
-  const semHoje = rowsComDados.length ? rows.find(r => {
-    const d = r.dt;
-    return d.getFullYear()===hoje.getFullYear() && d.getMonth()===hoje.getMonth() && d.getDate()===hoje.getDate();
-  }) : null;
-  const numSemHoje = semHoje ? semHoje.sem : semsComDados[semsComDados.length-1];
-
-  // Semanas fechadas = todas com dados exceto a atual em andamento
-  const semsFechadas = semsComDados.filter(s => s < numSemHoje);
-  
-  // As 3 semanas fechadas mais recentes
-  const s1num = semsFechadas[semsFechadas.length-1] || semsComDados[semsComDados.length-1];
-  const s2num = semsFechadas[semsFechadas.length-2] || s1num-1;
-  const s3num = semsFechadas[semsFechadas.length-3] || s1num-2;
-
-  const getSem = n => rows.filter(r=>r.sem===n);
-  const s1rows = getSem(s1num);
-  const s2rows = getSem(s2num);
-  const s3rows = getSem(s3num);
-
-  const soma = arr => ({
-    gL: arr.reduce((s,r)=>s+r.gLeads,0),  gI: arr.reduce((s,r)=>s+r.gInvest,0),
-    mL: arr.reduce((s,r)=>s+r.mLeads,0),  mI: arr.reduce((s,r)=>s+r.mInvest,0),
-    wL: arr.reduce((s,r)=>s+r.wLeads,0),  wI: arr.reduce((s,r)=>s+r.wInvest,0),
-    tL: arr.reduce((s,r)=>s+r.totLeads,0),tI: arr.reduce((s,r)=>s+r.totInvest,0),
-  });
-
-  const s1 = soma(s1rows), s2 = soma(s2rows), s3 = soma(s3rows);
-
-  const cpl = (inv,leads) => leads>0 && inv>0 ? inv/leads : 0;
-
-  // ── Scorecards (semana em destaque = s1) ─────────────────────
-  const diasUteis = s1rows.filter(r=>r.dt.getDay()!==0&&r.dt.getDay()!==6).length||5;
-  renderCard('g', s1.gL, s1.gI, cpl(s1.gI,s1.gL), metas.google*diasUteis);
-  renderCard('m', s1.mL, s1.mI, cpl(s1.mI,s1.mL), metas.meta*diasUteis);
-  renderCard('w', s1.wL, s1.wI, cpl(s1.wI,s1.wL), metas.wa*diasUteis);
-  const tL=s1.gL+s1.mL+s1.wL, tI=s1.gI+s1.mI+s1.wI;
-  renderCard('t', tL, tI, cpl(tI,tL), metas.total*diasUteis);
-
-  const fmtP = arr => {
-    if(!arr.length) return '—';
-    const d1=arr[0].dt, d2=arr[arr.length-1].dt;
-    return `${d1.getDate()}/${d1.getMonth()+1} – ${d2.getDate()}/${d2.getMonth()+1}`;
-  };
-
-  document.getElementById('lbl-sem-dest').textContent = `Semana ${s1num} — ${fmtP(s1rows)}`;
-
-  // ── Tabelas ───────────────────────────────────────────────────
-  renderTabela('tb-s1','tf-s1', s1, null);
-  renderTabela('tb-s2','tf-s2', s2, s1);
-  renderTabela('tb-s3','tf-s3', s3, s1);
-
-  document.getElementById('n-s1').textContent = `S${s1num}`;
-  document.getElementById('n-s2').textContent = `S${s2num}`;
-  document.getElementById('n-s3').textContent = `S${s3num}`;
-  document.getElementById('p-s1').textContent = fmtP(s1rows);
-  document.getElementById('p-s2').textContent = fmtP(s2rows);
-  document.getElementById('p-s3').textContent = fmtP(s3rows);
-
-  // ── Gráficos (mês atual) ──────────────────────────────────────
-  const mesAtual = rowsComDados.length ? rowsComDados[rowsComDados.length-1].mes : hoje.getMonth()+1;
-  const diasMes  = rows.filter(r=>r.mes===mesAtual);
+  const{metas,rows}=data;
+  rows.forEach(r=>{r.dt=new Date(r.data+'T00:00:00');});
+  document.getElementById('mg').textContent=metas.google;
+  document.getElementById('mm').textContent=metas.meta;
+  document.getElementById('mw').textContent=metas.wa;
+  document.getElementById('mt').textContent=metas.total;
+  const rowsComDados=rows.filter(r=>r.totLeads>0||r.gLeads>0||r.mLeads>0||r.wLeads>0);
+  const semsComDados=[...new Set(rowsComDados.map(r=>r.sem))].sort((a,b)=>a-b);
+  const hoje=new Date();
+  const semHoje=rowsComDados.length?rows.find(r=>{const d=r.dt;return d.getFullYear()===hoje.getFullYear()&&d.getMonth()===hoje.getMonth()&&d.getDate()===hoje.getDate();}):null;
+  const numSemHoje=semHoje?semHoje.sem:semsComDados[semsComDados.length-1];
+  const semsFechadas=semsComDados.filter(s=>s<numSemHoje);
+  const s1num=semsFechadas[semsFechadas.length-1]||semsComDados[semsComDados.length-1];
+  const s2num=semsFechadas[semsFechadas.length-2]||s1num-1;
+  const s3num=semsFechadas[semsFechadas.length-3]||s1num-2;
+  const getSem=n=>rows.filter(r=>r.sem===n);
+  const s1rows=getSem(s1num),s2rows=getSem(s2num),s3rows=getSem(s3num);
+  const soma=arr=>({gL:arr.reduce((s,r)=>s+r.gLeads,0),gI:arr.reduce((s,r)=>s+r.gInvest,0),mL:arr.reduce((s,r)=>s+r.mLeads,0),mI:arr.reduce((s,r)=>s+r.mInvest,0),wL:arr.reduce((s,r)=>s+r.wLeads,0),wI:arr.reduce((s,r)=>s+r.wInvest,0),tL:arr.reduce((s,r)=>s+r.totLeads,0),tI:arr.reduce((s,r)=>s+r.totInvest,0)});
+  const s1=soma(s1rows),s2=soma(s2rows),s3=soma(s3rows);
+  const cpl=(inv,leads)=>leads>0&&inv>0?inv/leads:0;
+  const diasUteis=s1rows.filter(r=>r.dt.getDay()!==0&&r.dt.getDay()!==6).length||5;
+  renderCard('g',s1.gL,s1.gI,cpl(s1.gI,s1.gL),metas.google*diasUteis);
+  renderCard('m',s1.mL,s1.mI,cpl(s1.mI,s1.mL),metas.meta*diasUteis);
+  renderCard('w',s1.wL,s1.wI,cpl(s1.wI,s1.wL),metas.wa*diasUteis);
+  const tL=s1.gL+s1.mL+s1.wL,tI=s1.gI+s1.mI+s1.wI;
+  renderCard('t',tL,tI,cpl(tI,tL),metas.total*diasUteis);
+  const fmtP=arr=>{if(!arr.length)return '—';const d1=arr[0].dt,d2=arr[arr.length-1].dt;return d1.getDate()+'/'+(d1.getMonth()+1)+' – '+d2.getDate()+'/'+(d2.getMonth()+1);};
+  document.getElementById('lbl-sem-dest').textContent='Semana '+s1num+' — '+fmtP(s1rows);
+  renderTabela('tb-s1','tf-s1',s1,null);
+  renderTabela('tb-s2','tf-s2',s2,s1);
+  renderTabela('tb-s3','tf-s3',s3,s1);
+  document.getElementById('n-s1').textContent='S'+s1num;
+  document.getElementById('n-s2').textContent='S'+s2num;
+  document.getElementById('n-s3').textContent='S'+s3num;
+  document.getElementById('p-s1').textContent=fmtP(s1rows);
+  document.getElementById('p-s2').textContent=fmtP(s2rows);
+  document.getElementById('p-s3').textContent=fmtP(s3rows);
+  const mesAtual=rowsComDados.length?rowsComDados[rowsComDados.length-1].mes:hoje.getMonth()+1;
+  const diasMes=rows.filter(r=>r.mes===mesAtual);
   renderCharts(diasMes);
-  renderMensal(diasMes, mesAtual);
-
-  // Timestamp
+  renderMensal(diasMes,mesAtual);
   const n=new Date();
-  document.getElementById('last-update').textContent =
-    `Atualizado ${n.getHours().toString().padStart(2,'0')}:${n.getMinutes().toString().padStart(2,'0')}`;
-
+  document.getElementById('last-update').textContent='Atualizado '+n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');
   document.getElementById('loading').style.display='none';
   document.getElementById('app').style.display='block';
 }
-
-// ── Render card ───────────────────────────────────────────────────
-function renderCard(id, leads, invest, cplVal, metaLeads){
-  const pct = metaLeads>0 ? Math.round((leads/metaLeads)*100) : 0;
-  document.getElementById('v-'+id).textContent = leads||'—';
-  document.getElementById('i'+id).textContent  = invest>0 ? fR(invest) : '—';
-  document.getElementById('c'+id).textContent  = cplVal>0 ? fR(cplVal) : '—';
-  document.getElementById('p'+id).style.width  = Math.min(pct,100)+'%';
-  document.getElementById('p'+id+'-pct').textContent = pct+'%';
-  const badge = document.getElementById('b-'+id);
-  if(!leads){ badge.className='meta-badge meta-warn'; badge.textContent='Sem dados'; }
-  else if(pct>=90){ badge.className='meta-badge meta-ok'; badge.textContent='✓ Na meta'; }
-  else if(pct>=65){ badge.className='meta-badge meta-warn'; badge.textContent='~ Abaixo'; }
-  else { badge.className='meta-badge meta-bad'; badge.textContent='✗ Longe'; }
+function renderCard(id,leads,invest,cplVal,metaLeads){
+  const pct=metaLeads>0?Math.round((leads/metaLeads)*100):0;
+  document.getElementById('v-'+id).textContent=leads||'—';
+  document.getElementById('i'+id).textContent=invest>0?fR(invest):'—';
+  document.getElementById('c'+id).textContent=cplVal>0?fR(cplVal):'—';
+  document.getElementById('p'+id).style.width=Math.min(pct,100)+'%';
+  document.getElementById('p'+id+'-pct').textContent=pct+'%';
+  const badge=document.getElementById('b-'+id);
+  if(!leads){badge.className='meta-badge meta-warn';badge.textContent='Sem dados';}
+  else if(pct>=90){badge.className='meta-badge meta-ok';badge.textContent='✓ Na meta';}
+  else if(pct>=65){badge.className='meta-badge meta-warn';badge.textContent='~ Abaixo';}
+  else{badge.className='meta-badge meta-bad';badge.textContent='✗ Longe';}
 }
-
-// ── Render tabela semanal ─────────────────────────────────────────
-function renderTabela(tbodyId, tfootId, s, ref){
-  const canais = [
-    {nome:'Google Ads', cor:'var(--azul-g)',  l:s.gL, i:s.gI, rl:ref?ref.gL:null, ri:ref?ref.gI:null, cplMeta:[28,31]},
-    {nome:'Meta Ads',   cor:'var(--roxo-m)',  l:s.mL, i:s.mI, rl:ref?ref.mL:null, ri:ref?ref.mI:null, cplMeta:[12,15]},
-    {nome:'WhatsApp',   cor:'var(--verde-w)', l:s.wL, i:s.wI, rl:ref?ref.wL:null, ri:ref?ref.wI:null, cplMeta:[8,10]},
-  ];
-  const tbody = document.getElementById(tbodyId);
-  tbody.innerHTML='';
-  let tL=0, tI=0;
+function renderTabela(tbodyId,tfootId,s,ref){
+  const canais=[{nome:'Google Ads',cor:'var(--azul-g)',l:s.gL,i:s.gI,rl:ref?ref.gL:null,cplMeta:[28,31]},{nome:'Meta Ads',cor:'var(--roxo-m)',l:s.mL,i:s.mI,rl:ref?ref.mL:null,cplMeta:[12,15]},{nome:'WhatsApp',cor:'var(--verde-w)',l:s.wL,i:s.wI,rl:ref?ref.wL:null,cplMeta:[8,10]}];
+  const tbody=document.getElementById(tbodyId);tbody.innerHTML='';let tL=0,tI=0;
   canais.forEach(c=>{
-    tL+=c.l; tI+=c.i;
-    const cplVal = c.l>0&&c.i>0 ? c.i/c.l : 0;
-    let cls = cplVal>0 ? (cplVal<=c.cplMeta[1]?'meta-ok':(cplVal<=c.cplMeta[1]*1.2?'meta-warn':'meta-bad')) : '';
-    let deltaHtml = '';
-    if(ref && c.rl!==null){
-      const d = c.l - c.rl;
-      const dc = d>0?'delta-up':d<0?'delta-dn':'delta-eq';
-      deltaHtml = `<td><span class="delta ${dc}">${d>0?'+':''}${d}</span></td>`;
-    }
-    tbody.innerHTML += `<tr>
-      <td><div class="cd" style="background:${c.cor}"></div>${c.nome}</td>
-      <td>${c.l||'—'}</td>
-      <td>${c.i>0?fR(c.i):'—'}</td>
-      <td>${cplVal>0?`<span class="cpl-pill ${cls}">${fR(cplVal)}</span>`:'—'}</td>
-      ${deltaHtml}
-    </tr>`;
+    tL+=c.l;tI+=c.i;
+    const cv=c.l>0&&c.i>0?c.i/c.l:0;
+    const cls=cv>0?(cv<=c.cplMeta[1]?'meta-ok':(cv<=c.cplMeta[1]*1.2?'meta-warn':'meta-bad')):'';
+    let dH='';if(ref&&c.rl!==null){const d=c.l-c.rl;const dc=d>0?'delta-up':d<0?'delta-dn':'delta-eq';dH='<td><span class="delta '+dc+'">'+(d>0?'+':'')+d+'</span></td>';}
+    tbody.innerHTML+='<tr><td><div class="cd" style="background:'+c.cor+'"></div>'+c.nome+'</td><td>'+(c.l||'—')+'</td><td>'+(c.i>0?fR(c.i):'—')+'</td><td>'+(cv>0?'<span class="cpl-pill '+cls+'">'+fR(cv)+'</span>':'—')+'</td>'+dH+'</tr>';
   });
-  const totCpl = tI>0&&tL>0 ? tI/tL : 0;
-  document.getElementById(tfootId).innerHTML=`<tr>
-    <td>TOTAL</td><td>${tL||'—'}</td><td>${tI>0?fR(tI):'—'}</td><td>${totCpl>0?fR(totCpl):'—'}</td>
-    ${ref?'<td></td>':''}
-  </tr>`;
+  const tc=tI>0&&tL>0?tI/tL:0;
+  document.getElementById(tfootId).innerHTML='<tr><td>TOTAL</td><td>'+(tL||'—')+'</td><td>'+(tI>0?fR(tI):'—')+'</td><td>'+(tc>0?fR(tc):'—')+'</td>'+(ref?'<td></td>':'')+'</tr>';
 }
-
-// ── Gráficos ──────────────────────────────────────────────────────
-let chL=null, chC=null;
+let chL=null,chC=null;
 function renderCharts(dias){
-  const labels = dias.map(d=>`${d.dt.getDate()}/${d.dt.getMonth()+1}`);
-  const baseOpts = {
-    responsive:true, maintainAspectRatio:false,
-    plugins:{legend:{display:false},tooltip:{backgroundColor:'#0d2530',borderColor:'rgba(255,255,255,0.1)',borderWidth:1,titleColor:'#fff',bodyColor:'#aaa'}},
-    scales:{x:{grid:{color:'rgba(30,199,182,0.06)'},ticks:{color:'#555',font:{size:9}}},y:{grid:{color:'rgba(30,199,182,0.06)'},ticks:{color:'#555',font:{size:9}}}}
-  };
-  if(chL) chL.destroy();
-  chL = new Chart(document.getElementById('chart-leads'),{
-    type:'line',
-    data:{labels,datasets:[
-      {label:'Google',data:dias.map(d=>d.gLeads||null),borderColor:'#4285f4',backgroundColor:'rgba(66,133,244,0.07)',tension:.4,pointRadius:2,pointHoverRadius:5,fill:true,spanGaps:true},
-      {label:'Meta',  data:dias.map(d=>d.mLeads||null),borderColor:'#9b59b6',backgroundColor:'rgba(155,89,182,0.07)',tension:.4,pointRadius:2,pointHoverRadius:5,fill:true,spanGaps:true},
-      {label:'WA',    data:dias.map(d=>d.wLeads||null),borderColor:'#25d366',backgroundColor:'rgba(37,211,102,0.07)',tension:.4,pointRadius:2,pointHoverRadius:5,fill:true,spanGaps:true},
-    ]},
-    options:baseOpts
-  });
-  const tG=dias.reduce((s,d)=>s+d.gLeads,0), iG=dias.reduce((s,d)=>s+d.gInvest,0);
-  const tM=dias.reduce((s,d)=>s+d.mLeads,0), iM=dias.reduce((s,d)=>s+d.mInvest,0);
-  const tW=dias.reduce((s,d)=>s+d.wLeads,0), iW=dias.reduce((s,d)=>s+d.wInvest,0);
-  const cG=tG>0?iG/tG:0, cM=tM>0?iM/tM:0, cW=tW>0?iW/tW:0;
-  if(chC) chC.destroy();
-  chC = new Chart(document.getElementById('chart-cpl'),{
-    type:'doughnut',
-    data:{
-      labels:[`Google  R$${cG.toFixed(2)}`,`Meta  R$${cM.toFixed(2)}`,`WA  R$${cW.toFixed(2)}`],
-      datasets:[{data:[Math.max(cG,.01),Math.max(cM,.01),Math.max(cW,.01)],backgroundColor:['rgba(66,133,244,.75)','rgba(155,89,182,.75)','rgba(37,211,102,.75)'],borderColor:['#4285f4','#9b59b6','#25d366'],borderWidth:2}]
-    },
-    options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{color:'#777',font:{size:10},boxWidth:10,padding:10}},tooltip:{backgroundColor:'#0d2530',titleColor:'#fff',bodyColor:'#aaa'}}}
-  });
+  const labels=dias.map(d=>d.dt.getDate()+'/'+(d.dt.getMonth()+1));
+  const baseOpts={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#0d2530',borderColor:'rgba(255,255,255,0.1)',borderWidth:1,titleColor:'#fff',bodyColor:'#aaa'}},scales:{x:{grid:{color:'rgba(30,199,182,0.06)'},ticks:{color:'#555',font:{size:9}}},y:{grid:{color:'rgba(30,199,182,0.06)'},ticks:{color:'#555',font:{size:9}}}}};
+  if(chL)chL.destroy();
+  chL=new Chart(document.getElementById('chart-leads'),{type:'line',data:{labels,datasets:[{label:'Google',data:dias.map(d=>d.gLeads||null),borderColor:'#4285f4',backgroundColor:'rgba(66,133,244,0.07)',tension:.4,pointRadius:2,fill:true,spanGaps:true},{label:'Meta',data:dias.map(d=>d.mLeads||null),borderColor:'#9b59b6',backgroundColor:'rgba(155,89,182,0.07)',tension:.4,pointRadius:2,fill:true,spanGaps:true},{label:'WA',data:dias.map(d=>d.wLeads||null),borderColor:'#25d366',backgroundColor:'rgba(37,211,102,0.07)',tension:.4,pointRadius:2,fill:true,spanGaps:true}]},options:baseOpts});
+  const tG=dias.reduce((s,d)=>s+d.gLeads,0),iG=dias.reduce((s,d)=>s+d.gInvest,0);
+  const tM=dias.reduce((s,d)=>s+d.mLeads,0),iM=dias.reduce((s,d)=>s+d.mInvest,0);
+  const tW=dias.reduce((s,d)=>s+d.wLeads,0),iW=dias.reduce((s,d)=>s+d.wInvest,0);
+  const cG=tG>0?iG/tG:0,cM=tM>0?iM/tM:0,cW=tW>0?iW/tW:0;
+  if(chC)chC.destroy();
+  chC=new Chart(document.getElementById('chart-cpl'),{type:'doughnut',data:{labels:['Google R$'+cG.toFixed(2),'Meta R$'+cM.toFixed(2),'WA R$'+cW.toFixed(2)],datasets:[{data:[Math.max(cG,.01),Math.max(cM,.01),Math.max(cW,.01)],backgroundColor:['rgba(66,133,244,.75)','rgba(155,89,182,.75)','rgba(37,211,102,.75)'],borderColor:['#4285f4','#9b59b6','#25d366'],borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'bottom',labels:{color:'#777',font:{size:10},boxWidth:10,padding:10}},tooltip:{backgroundColor:'#0d2530',titleColor:'#fff',bodyColor:'#aaa'}}}});
 }
-
-// ── Resumo mensal ─────────────────────────────────────────────────
-function renderMensal(dias, mesNum){
-  const n = MESES[(mesNum||1)-1];
-  document.getElementById('mes-nome').textContent = n;
-  document.getElementById('mes-nome-2').textContent = n;
-  const tG=dias.reduce((s,d)=>s+d.gLeads,0), tM=dias.reduce((s,d)=>s+d.mLeads,0);
-  const tW=dias.reduce((s,d)=>s+d.wLeads,0), tT=dias.reduce((s,d)=>s+d.totLeads,0);
-  const iT=dias.reduce((s,d)=>s+d.totInvest,0);
-  const cT=tT>0?iT/tT:0;
-  document.getElementById('monthly-canais').innerHTML=[
-    {n:tG, l:'Leads Google',  c:'var(--azul-g)'},
-    {n:tM, l:'Leads Meta',    c:'var(--roxo-m)'},
-    {n:tW, l:'Leads WA',      c:'var(--verde-w)'},
-    {n:tT, l:'Total Leads',   c:'var(--turquesa)'},
-    {n:fR(iT), l:'Investido', c:'var(--branco)'},
-    {n:fR(cT), l:'CPL Médio', c:'var(--branco)'},
-  ].map(i=>`<div class="monthly-item"><div class="monthly-num" style="color:${i.c}">${i.n}</div><div class="monthly-lbl">${i.l}</div></div>`).join('');
+function renderMensal(dias,mesNum){
+  const n=MESES[(mesNum||1)-1];
+  document.getElementById('mes-nome').textContent=n;
+  document.getElementById('mes-nome-2').textContent=n;
+  const tG=dias.reduce((s,d)=>s+d.gLeads,0),tM=dias.reduce((s,d)=>s+d.mLeads,0);
+  const tW=dias.reduce((s,d)=>s+d.wLeads,0),tT=dias.reduce((s,d)=>s+d.totLeads,0);
+  const iT=dias.reduce((s,d)=>s+d.totInvest,0),cT=tT>0?iT/tT:0;
+  document.getElementById('monthly-canais').innerHTML=[{n:tG,l:'Leads Google',c:'var(--azul-g)'},{n:tM,l:'Leads Meta',c:'var(--roxo-m)'},{n:tW,l:'Leads WA',c:'var(--verde-w)'},{n:tT,l:'Total Leads',c:'var(--turquesa)'},{n:fR(iT),l:'Investido',c:'var(--branco)'},{n:fR(cT),l:'CPL Médio',c:'var(--branco)'}].map(i=>'<div class="monthly-item"><div class="monthly-num" style="color:'+i.c+'">'+i.n+'</div><div class="monthly-lbl">'+i.l+'</div></div>').join('');
 }
-
 loadData();
 </script>
 </body>
