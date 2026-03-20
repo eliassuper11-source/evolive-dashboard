@@ -32,6 +32,24 @@ main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:
 .section-label{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--turquesa);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(30,199,182,0.35),transparent)}
 #error-msg{display:none;background:var(--bad-bg);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:14px 18px;color:var(--bad);font-size:13px;margin-bottom:20px;line-height:1.6}
+
+/* ══ VISÃO RÁPIDA ══════════════════════════════════════════════ */
+.quickview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.qv-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;position:relative}
+.qv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--qc,var(--turquesa))}
+.qv-google{--qc:var(--azul-g)}.qv-meta{--qc:var(--roxo-m)}.qv-wa{--qc:var(--verde-w)}.qv-total{--qc:var(--turquesa)}
+.qv-header{display:flex;align-items:center;gap:6px;padding:10px 14px 8px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.qv-dot{width:6px;height:6px;border-radius:50%;background:var(--qc,var(--turquesa));flex-shrink:0}
+.qv-canal{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--cinza3)}
+.qv-periods{display:grid;grid-template-columns:repeat(3,1fr)}
+.qv-period{padding:10px 12px 12px;border-right:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;gap:3px}
+.qv-period:last-child{border-right:none}
+.qv-period-label{font-size:9px;color:var(--cinza4);text-transform:uppercase;letter-spacing:.6px}
+.qv-val{font-family:'Inter',sans-serif;font-weight:700;font-size:22px;line-height:1;letter-spacing:-0.3px;color:var(--branco)}
+.qv-val.zero{color:var(--cinza4)}
+.qv-sub{font-size:9px;color:var(--cinza4);font-family:'DM Mono',monospace;margin-top:1px}
+
+/* ══ SCORECARDS ════════════════════════════════════════════════ */
 .scorecards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
 .card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px 22px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
 .card:hover{transform:translateY(-2px);border-color:rgba(30,199,182,0.25)}
@@ -46,12 +64,15 @@ main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:
 .card-label{font-size:11px;color:var(--cinza4);margin-bottom:13px}
 .progress-wrap{margin-bottom:12px}
 .progress-label{display:flex;justify-content:space-between;font-size:10px;color:var(--cinza4);margin-bottom:4px}
-.progress-bar{height:3px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden}
-.progress-fill{height:100%;border-radius:3px;transition:width 1s ease;background:var(--cc,var(--turquesa))}
+.progress-bar{height:3px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;position:relative}
+.progress-range{position:absolute;top:0;height:100%;background:rgba(255,255,255,0.13);border-radius:3px}
+.progress-fill{height:100%;border-radius:3px;transition:width 1s ease;background:var(--cc,var(--turquesa));position:relative;z-index:1}
 .card-metrics{display:flex;gap:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.05)}
 .metric{display:flex;flex-direction:column;gap:2px}
 .metric-val{font-family:'DM Mono',monospace;font-size:12px;font-weight:500}
 .metric-label{font-size:9px;color:var(--cinza4);text-transform:uppercase;letter-spacing:.5px}
+
+/* ══ GRÁFICOS ══════════════════════════════════════════════════ */
 .charts-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:30px}
 .chart-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:22px}
 .chart-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px}
@@ -60,6 +81,8 @@ main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:
 .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
 .legend-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--cinza3)}
 .legend-dot{width:8px;height:8px;border-radius:2px}
+
+/* ══ TABELAS ═══════════════════════════════════════════════════ */
 .tables-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px}
 .table-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden}
 .table-card.destaque{border-color:rgba(30,199,182,0.35);box-shadow:0 0 0 1px rgba(30,199,182,0.08),0 4px 20px rgba(30,199,182,0.06)}
@@ -83,7 +106,7 @@ tbody td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-weigh
 tfoot td{padding:9px 14px;font-size:12px;font-weight:600;text-align:right;border-top:1px solid rgba(255,255,255,0.08);font-family:'DM Mono',monospace;color:var(--turquesa)}
 tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.3px;text-transform:uppercase;font-weight:600}
 
-/* RESUMO MENSAL */
+/* ══ RESUMO MENSAL ═════════════════════════════════════════════ */
 .monthly-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:30px}
 .monthly-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:22px}
 .monthly-big{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
@@ -91,7 +114,7 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
 .monthly-num{font-family:'Inter',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.3px}
 .monthly-lbl{font-size:10px;color:var(--cinza4);text-transform:uppercase;letter-spacing:.5px}
 
-/* CARD VENDAS */
+/* ══ CARD VENDAS ═══════════════════════════════════════════════ */
 .vendas-card{background:linear-gradient(135deg,#041820,var(--bg3))!important;border-color:rgba(30,199,182,0.18)!important}
 .vendas-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
 .roas-pill{font-size:11px;font-family:'DM Mono',monospace;padding:4px 10px;border-radius:20px;background:rgba(30,199,182,0.1);color:var(--turquesa);border:1px solid rgba(30,199,182,0.25);font-weight:600}
@@ -114,7 +137,7 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .45s ease both}
-.d1{animation-delay:.04s}.d2{animation-delay:.09s}.d3{animation-delay:.14s}.d4{animation-delay:.19s}.d5{animation-delay:.24s}
+.d0{animation-delay:.01s}.d1{animation-delay:.04s}.d2{animation-delay:.09s}.d3{animation-delay:.14s}.d4{animation-delay:.19s}.d5{animation-delay:.24s}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
 </style>
 </head>
@@ -123,7 +146,7 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
 <div id="loading">
   <div class="loading-logo">EVOLIVE</div>
   <div class="loading-bar"><div class="loading-fill"></div></div>
-  <div class="loading-text" id="ltxt">Conectando...</div>
+  <div class="loading-text" id="ltxt">Carregando dados...</div>
 </div>
 
 <header>
@@ -141,34 +164,106 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
 <main id="app" style="display:none">
   <div id="error-msg"></div>
 
+  <!-- ══ VISÃO RÁPIDA ══════════════════════════════════════════ -->
+  <div class="section-label fade-up d0">Visão Rápida — <span id="lbl-hoje" style="color:var(--cinza3);font-weight:400;letter-spacing:0;text-transform:none;font-family:'DM Mono',monospace;font-size:11px">—</span></div>
+  <div class="quickview-grid fade-up d0">
+
+    <div class="qv-card qv-google">
+      <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">Google Ads</span></div>
+      <div class="qv-periods">
+        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qg-hoje">—</div><div class="qv-sub" id="qg-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qg-ontem">—</div><div class="qv-sub" id="qg-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qg-3d">—</div><div class="qv-sub" id="qg-3d-sub"></div></div>
+      </div>
+    </div>
+
+    <div class="qv-card qv-meta">
+      <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">Meta Ads</span></div>
+      <div class="qv-periods">
+        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qm-hoje">—</div><div class="qv-sub" id="qm-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qm-ontem">—</div><div class="qv-sub" id="qm-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qm-3d">—</div><div class="qv-sub" id="qm-3d-sub"></div></div>
+      </div>
+    </div>
+
+    <div class="qv-card qv-wa">
+      <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">WhatsApp</span></div>
+      <div class="qv-periods">
+        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qw-hoje">—</div><div class="qv-sub" id="qw-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qw-ontem">—</div><div class="qv-sub" id="qw-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qw-3d">—</div><div class="qv-sub" id="qw-3d-sub"></div></div>
+      </div>
+    </div>
+
+    <div class="qv-card qv-total">
+      <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">Total Geral</span></div>
+      <div class="qv-periods">
+        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qt-hoje">—</div><div class="qv-sub" id="qt-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qt-ontem">—</div><div class="qv-sub" id="qt-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qt-3d">—</div><div class="qv-sub" id="qt-3d-sub"></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ SCORECARDS ══════════════════════════════════════════ -->
   <div class="section-label">Última Semana Fechada — <span id="lbl-sem-dest" style="color:var(--cinza3);font-weight:400;letter-spacing:0;text-transform:none;font-family:'DM Mono',monospace;font-size:11px">—</span></div>
   <div class="scorecards">
     <div class="card card-google fade-up d1">
       <div class="card-header"><div class="canal-badge"><div class="canal-dot"></div>Google Ads</div><div class="meta-badge" id="b-g">—</div></div>
       <div class="card-value" id="v-g">—</div><div class="card-label">leads na semana</div>
-      <div class="progress-wrap"><div class="progress-label"><span>Meta: <b id="mg">20</b>/dia</span><span id="pg-pct">—</span></div><div class="progress-bar"><div class="progress-fill" id="pg" style="width:0%"></div></div></div>
-      <div class="card-metrics"><div class="metric"><div class="metric-val" id="ig">—</div><div class="metric-label">Investido</div></div><div class="metric"><div class="metric-val" id="cg">—</div><div class="metric-label">CPL</div></div><div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">R$28–31</div><div class="metric-label">meta CPL</div></div></div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Range: <b id="range-g">—</b>/sem</span><span id="pg-pct">—</span></div>
+        <div class="progress-bar"><div class="progress-range" id="pr-g"></div><div class="progress-fill" id="pg" style="width:0%"></div></div>
+      </div>
+      <div class="card-metrics">
+        <div class="metric"><div class="metric-val" id="ig">—</div><div class="metric-label">Investido</div></div>
+        <div class="metric"><div class="metric-val" id="cg">—</div><div class="metric-label">CPL</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">R$28–31</div><div class="metric-label">meta CPL</div></div>
+      </div>
     </div>
     <div class="card card-meta fade-up d2">
       <div class="card-header"><div class="canal-badge"><div class="canal-dot"></div>Meta Ads</div><div class="meta-badge" id="b-m">—</div></div>
       <div class="card-value" id="v-m">—</div><div class="card-label">leads na semana</div>
-      <div class="progress-wrap"><div class="progress-label"><span>Meta: <b id="mm">35</b>/dia</span><span id="pm-pct">—</span></div><div class="progress-bar"><div class="progress-fill" id="pm" style="width:0%"></div></div></div>
-      <div class="card-metrics"><div class="metric"><div class="metric-val" id="im">—</div><div class="metric-label">Investido</div></div><div class="metric"><div class="metric-val" id="cm">—</div><div class="metric-label">CPL</div></div><div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">R$12–15</div><div class="metric-label">meta CPL</div></div></div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Range: <b id="range-m">—</b>/sem</span><span id="pm-pct">—</span></div>
+        <div class="progress-bar"><div class="progress-range" id="pr-m"></div><div class="progress-fill" id="pm" style="width:0%"></div></div>
+      </div>
+      <div class="card-metrics">
+        <div class="metric"><div class="metric-val" id="im">—</div><div class="metric-label">Investido</div></div>
+        <div class="metric"><div class="metric-val" id="cm">—</div><div class="metric-label">CPL</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">R$12–15</div><div class="metric-label">meta CPL</div></div>
+      </div>
     </div>
     <div class="card card-wa fade-up d3">
       <div class="card-header"><div class="canal-badge"><div class="canal-dot"></div>WhatsApp</div><div class="meta-badge" id="b-w">—</div></div>
       <div class="card-value" id="v-w">—</div><div class="card-label">leads na semana</div>
-      <div class="progress-wrap"><div class="progress-label"><span>Meta: <b id="mw">70</b>/dia</span><span id="pw-pct">—</span></div><div class="progress-bar"><div class="progress-fill" id="pw" style="width:0%"></div></div></div>
-      <div class="card-metrics"><div class="metric"><div class="metric-val" id="iw">—</div><div class="metric-label">Investido</div></div><div class="metric"><div class="metric-val" id="cw">—</div><div class="metric-label">CPL</div></div><div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">R$8–10</div><div class="metric-label">meta CPL</div></div></div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Range: <b id="range-w">—</b>/sem</span><span id="pw-pct">—</span></div>
+        <div class="progress-bar"><div class="progress-range" id="pr-w"></div><div class="progress-fill" id="pw" style="width:0%"></div></div>
+      </div>
+      <div class="card-metrics">
+        <div class="metric"><div class="metric-val" id="iw">—</div><div class="metric-label">Investido</div></div>
+        <div class="metric"><div class="metric-val" id="cw">—</div><div class="metric-label">CPL</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">R$8–10</div><div class="metric-label">meta CPL</div></div>
+      </div>
     </div>
     <div class="card card-total fade-up d4">
       <div class="card-header"><div class="canal-badge"><div class="canal-dot"></div>Total Geral</div><div class="meta-badge" id="b-t">—</div></div>
       <div class="card-value" id="v-t">—</div><div class="card-label">leads na semana</div>
-      <div class="progress-wrap"><div class="progress-label"><span>Meta: <b id="mt">125</b>/dia</span><span id="pt-pct">—</span></div><div class="progress-bar"><div class="progress-fill" id="pt" style="width:0%"></div></div></div>
-      <div class="card-metrics"><div class="metric"><div class="metric-val" id="it">—</div><div class="metric-label">Investido</div></div><div class="metric"><div class="metric-val" id="ct">—</div><div class="metric-label">CPL Médio</div></div><div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">125/dia</div><div class="metric-label">meta leads</div></div></div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Range: <b id="range-t">—</b>/sem</span><span id="pt-pct">—</span></div>
+        <div class="progress-bar"><div class="progress-range" id="pr-t"></div><div class="progress-fill" id="pt" style="width:0%"></div></div>
+      </div>
+      <div class="card-metrics">
+        <div class="metric"><div class="metric-val" id="it">—</div><div class="metric-label">Investido</div></div>
+        <div class="metric"><div class="metric-val" id="ct">—</div><div class="metric-label">CPL Médio</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--cinza4);font-size:10px">—</div><div class="metric-label">meta leads</div></div>
+      </div>
     </div>
   </div>
 
+  <!-- ══ GRÁFICOS ════════════════════════════════════════════ -->
   <div class="section-label">Evolução do Mês Atual</div>
   <div class="charts-grid fade-up d3">
     <div class="chart-card">
@@ -188,6 +283,7 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
     </div>
   </div>
 
+  <!-- ══ TABELAS ═════════════════════════════════════════════ -->
   <div class="section-label">Comparativo de Semanas Fechadas</div>
   <div class="tables-grid fade-up d4">
     <div class="table-card destaque">
@@ -204,6 +300,7 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
     </div>
   </div>
 
+  <!-- ══ RESUMO MENSAL ════════════════════════════════════════ -->
   <div class="section-label">Resumo do Mês</div>
   <div class="monthly-grid fade-up d5">
     <div class="monthly-card">
@@ -220,21 +317,9 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
         <div class="roas-pill" id="v-roas-pill">ROAS —</div>
       </div>
       <div class="v-kpis">
-        <div class="vkpi">
-          <div class="vkpi-val" id="v-qtd" style="color:var(--turquesa)">—</div>
-          <div class="vkpi-lbl">Contratos</div>
-          <div class="vkpi-sub" id="v-receita">—</div>
-        </div>
-        <div class="vkpi">
-          <div class="vkpi-val" id="v-roas" style="color:var(--ok)">—</div>
-          <div class="vkpi-lbl">ROAS c/ pagos</div>
-          <div class="vkpi-sub" id="v-conv">—</div>
-        </div>
-        <div class="vkpi">
-          <div class="vkpi-val" id="v-ticket" style="color:var(--warn)">—</div>
-          <div class="vkpi-lbl">Ticket médio</div>
-          <div class="vkpi-sub" id="v-invest">—</div>
-        </div>
+        <div class="vkpi"><div class="vkpi-val" id="v-qtd" style="color:var(--turquesa)">—</div><div class="vkpi-lbl">Contratos</div><div class="vkpi-sub" id="v-receita">—</div></div>
+        <div class="vkpi"><div class="vkpi-val" id="v-roas" style="color:var(--ok)">—</div><div class="vkpi-lbl">ROAS c/ pagos</div><div class="vkpi-sub" id="v-conv">—</div></div>
+        <div class="vkpi"><div class="vkpi-val" id="v-ticket" style="color:var(--warn)">—</div><div class="vkpi-lbl">Ticket médio</div><div class="vkpi-sub" id="v-invest">—</div></div>
       </div>
       <div class="v-canais-pagos" id="v-canais-pagos"></div>
       <div class="v-canais-org" id="v-canais-org"></div>
@@ -243,12 +328,27 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
 </main>
 
 <script>
-const PROXY_TRAFEGO='https://script.google.com/macros/s/AKfycbyVMyhLWTDBzk-iC4EeVQa2bzVEmXe-OjwvwffbKnRxvA-qwqmLzQeiuZRDX3oRp71H/exec';
-const PROXY_VENDAS='https://script.google.com/macros/s/AKfycbyFtIsZVb5Z1uR_EwPo8-MP6IPrigbbpBGW92P-1J8KM2pk_l-6GVHzktnBxRzFjllu/exec';
-const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const PROXY_TRAFEGO = 'https://script.google.com/macros/s/AKfycbyVMyhLWTDBzk-iC4EeVQa2bzVEmXe-OjwvwffbKnRxvA-qwqmLzQeiuZRDX3oRp71H/exec';
+const PROXY_VENDAS  = 'https://script.google.com/macros/s/AKfycbyFtIsZVb5Z1uR_EwPo8-MP6IPrigbbpBGW92P-1J8KM2pk_l-6GVHzktnBxRzFjllu/exec';
+const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 
 function fR(v,d=2){return 'R$ '+Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});}
 function fRk(v){const n=Number(v||0);return n>=1000?'R$'+(n/1000).toFixed(0)+'k':fR(n,0);}
+
+// ── Normaliza metas: suporta formato antigo (número) e novo (objeto piso/teto) ──
+function normalizaMetas(metas){
+  function norm(m,pD,tD,pS,tS){
+    if(m && typeof m==='object' && 'pisoDia' in m) return m;
+    const v=Number(m)||pD;
+    return {pisoDia:v, tetoDia:tD, pisoSem:pS, tetoSem:tS};
+  }
+  return {
+    google: norm(metas.google, 15, 25,  75, 125),
+    meta:   norm(metas.meta,   25, 45, 125, 225),
+    wa:     norm(metas.wa,     35, 55, 175, 275),
+    total:  norm(metas.total,  90,125, 450, 625),
+  };
+}
 
 async function loadAll(){
   document.getElementById('loading').style.display='flex';
@@ -278,10 +378,13 @@ async function loadAll(){
 function renderTrafego(data){
   const{metas,rows}=data;
   rows.forEach(r=>{r.dt=new Date(r.data+'T00:00:00');});
-  document.getElementById('mg').textContent=metas.google;
-  document.getElementById('mm').textContent=metas.meta;
-  document.getElementById('mw').textContent=metas.wa;
-  document.getElementById('mt').textContent=metas.total;
+
+  const M = normalizaMetas(metas);
+
+  // ── Visão Rápida ────────────────────────────────────────────
+  renderVisaoRapida(rows, M);
+
+  // ── Semanas fechadas ────────────────────────────────────────
   const rowsComDados=rows.filter(r=>r.totLeads>0||r.gLeads>0||r.mLeads>0||r.wLeads>0);
   const semsComDados=[...new Set(rowsComDados.map(r=>r.sem))].sort((a,b)=>a-b);
   const hoje=new Date();
@@ -296,12 +399,14 @@ function renderTrafego(data){
   const soma=arr=>({gL:arr.reduce((s,r)=>s+r.gLeads,0),gI:arr.reduce((s,r)=>s+r.gInvest,0),mL:arr.reduce((s,r)=>s+r.mLeads,0),mI:arr.reduce((s,r)=>s+r.mInvest,0),wL:arr.reduce((s,r)=>s+r.wLeads,0),wI:arr.reduce((s,r)=>s+r.wInvest,0),tL:arr.reduce((s,r)=>s+r.totLeads,0),tI:arr.reduce((s,r)=>s+r.totInvest,0)});
   const s1=soma(s1rows),s2=soma(s2rows),s3=soma(s3rows);
   const cpl=(inv,leads)=>leads>0&&inv>0?inv/leads:0;
-  const diasUteis=s1rows.filter(r=>r.dt.getDay()!==0&&r.dt.getDay()!==6).length||5;
-  renderCard('g',s1.gL,s1.gI,cpl(s1.gI,s1.gL),metas.google*diasUteis);
-  renderCard('m',s1.mL,s1.mI,cpl(s1.mI,s1.mL),metas.meta*diasUteis);
-  renderCard('w',s1.wL,s1.wI,cpl(s1.wI,s1.wL),metas.wa*diasUteis);
+
+  // ── Scorecards com range ────────────────────────────────────
+  renderCard('g',s1.gL,s1.gI,cpl(s1.gI,s1.gL),M.google);
+  renderCard('m',s1.mL,s1.mI,cpl(s1.mI,s1.mL),M.meta);
+  renderCard('w',s1.wL,s1.wI,cpl(s1.wI,s1.wL),M.wa);
   const tL=s1.gL+s1.mL+s1.wL,tI=s1.gI+s1.mI+s1.wI;
-  renderCard('t',tL,tI,cpl(tI,tL),metas.total*diasUteis);
+  renderCard('t',tL,tI,cpl(tI,tL),M.total);
+
   const fmtP=arr=>{if(!arr.length)return'—';const d1=arr[0].dt,d2=arr[arr.length-1].dt;return d1.getDate()+'/'+(d1.getMonth()+1)+' – '+d2.getDate()+'/'+(d2.getMonth()+1);};
   document.getElementById('lbl-sem-dest').textContent='Semana '+s1num+' — '+fmtP(s1rows);
   renderTabela('tb-s1','tf-s1',s1,null);
@@ -319,18 +424,93 @@ function renderTrafego(data){
   renderMensal(diasMes,mesAtual);
 }
 
-function renderCard(id,leads,invest,cplVal,metaLeads){
-  const pct=metaLeads>0?Math.round((leads/metaLeads)*100):0;
+// ── Visão Rápida ─────────────────────────────────────────────────
+function renderVisaoRapida(rows, M){
+  const hoje=new Date();
+  const fmt=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  const dHoje  = fmt(hoje);
+  const dOntem = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-1));
+  const d2dias = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-2));
+
+  const rH = rows.find(r=>r.data===dHoje);
+  const rO = rows.find(r=>r.data===dOntem);
+  const r2 = rows.find(r=>r.data===d2dias);
+
+  document.getElementById('lbl-hoje').textContent=`${hoje.getDate()}/${hoje.getMonth()+1}/${hoje.getFullYear()}`;
+
+  setQV('g', rH?.gLeads??null, rO?.gLeads??null, [rH,rO,r2], r=>(r?.gLeads||0), M.google.pisoDia, M.google.tetoDia);
+  setQV('m', rH?.mLeads??null, rO?.mLeads??null, [rH,rO,r2], r=>(r?.mLeads||0), M.meta.pisoDia,   M.meta.tetoDia);
+  setQV('w', rH?.wLeads??null, rO?.wLeads??null, [rH,rO,r2], r=>(r?.wLeads||0), M.wa.pisoDia,     M.wa.tetoDia);
+
+  // Total: usa totLeads ou soma dos canais
+  const totFn = r => r ? (r.totLeads || r.gLeads+r.mLeads+r.wLeads) : 0;
+  setQV('t', rH?totFn(rH):null, rO?totFn(rO):null, [rH,rO,r2], totFn, M.total.pisoDia, M.total.tetoDia);
+}
+
+function setQV(id, vHoje, vOntem, rows3, fn, piso, teto){
+  const cor = v => {
+    if(v===null) return '';
+    if(v>=piso) return 'var(--ok)';
+    if(v>=piso*0.7) return 'var(--warn)';
+    return 'var(--bad)';
+  };
+  const set = (elId, subId, val, refPiso, refTeto) => {
+    const el=document.getElementById(elId);
+    const sub=document.getElementById(subId);
+    if(val===null){el.textContent='—';el.className='qv-val zero';el.style.color='';if(sub)sub.textContent='sem dados';return;}
+    el.textContent=val;el.className='qv-val';el.style.color=cor(val);
+    if(sub)sub.textContent=`piso ${refPiso} | teto ${refTeto}`;
+  };
+  set(`q${id}-hoje`, `q${id}-hoje-sub`, vHoje, piso, teto);
+  set(`q${id}-ontem`,`q${id}-ontem-sub`,vOntem,piso, teto);
+
+  // 3 dias acumulado
+  const v3 = rows3.filter(Boolean).reduce((s,r)=>s+fn(r),0);
+  const el3=document.getElementById(`q${id}-3d`);
+  const sub3=document.getElementById(`q${id}-3d-sub`);
+  const hasDados = rows3.some(Boolean);
+  if(!hasDados){el3.textContent='—';el3.className='qv-val zero';el3.style.color='';if(sub3)sub3.textContent='sem dados';}
+  else{
+    el3.textContent=v3;el3.className='qv-val';
+    const p3=piso*3,t3=teto*3;
+    el3.style.color=v3>=p3?'var(--ok)':v3>=p3*0.7?'var(--warn)':'var(--bad)';
+    if(sub3)sub3.textContent=`piso ${p3} | teto ${t3}`;
+  }
+}
+
+// ── Scorecard com range ───────────────────────────────────────────
+function renderCard(id, leads, invest, cplVal, m){
+  const pisoSem = m.pisoSem || 0;
+  const tetoSem = m.tetoSem || pisoSem;
+
+  // Barra vai até o teto (100%)
+  const pct = tetoSem>0 ? Math.round((leads/tetoSem)*100) : 0;
+
+  // Faixa visual: do piso até o teto na barra
+  const faixaLeft  = tetoSem>0 ? Math.round((pisoSem/tetoSem)*100) : 0;
+  const faixaWidth = 100 - faixaLeft;
+
   document.getElementById('v-'+id).textContent=leads||'—';
   document.getElementById('i'+id).textContent=invest>0?fR(invest):'—';
   document.getElementById('c'+id).textContent=cplVal>0?fR(cplVal):'—';
   document.getElementById('p'+id).style.width=Math.min(pct,100)+'%';
   document.getElementById('p'+id+'-pct').textContent=pct+'%';
+
+  // Faixa de range na barra
+  const prEl=document.getElementById('pr-'+id);
+  if(prEl){prEl.style.left=faixaLeft+'%';prEl.style.width=faixaWidth+'%';}
+
+  // Label do range
+  const rangeEl=document.getElementById('range-'+id);
+  if(rangeEl) rangeEl.textContent=`${pisoSem}–${tetoSem}`;
+
+  // Badge: dentro/fora do range
   const badge=document.getElementById('b-'+id);
   if(!leads){badge.className='meta-badge meta-warn';badge.textContent='Sem dados';}
-  else if(pct>=90){badge.className='meta-badge meta-ok';badge.textContent='✓ Na meta';}
-  else if(pct>=65){badge.className='meta-badge meta-warn';badge.textContent='~ Abaixo';}
-  else{badge.className='meta-badge meta-bad';badge.textContent='✗ Longe';}
+  else if(leads>=pisoSem&&leads<=tetoSem){badge.className='meta-badge meta-ok';badge.textContent='✓ Dentro';}
+  else if(leads>tetoSem){badge.className='meta-badge meta-ok';badge.textContent='↑ Acima';}
+  else if(leads>=pisoSem*0.75){badge.className='meta-badge meta-warn';badge.textContent='~ Limite';}
+  else{badge.className='meta-badge meta-bad';badge.textContent='✗ Fora';}
 }
 
 function renderTabela(tbodyId,tfootId,s,ref){
@@ -384,13 +564,9 @@ function renderMensal(dias,mesNum){
 function renderVendas(data){
   const m=data.mensal;
   document.getElementById('mes-nome-v').textContent=MESES[(data.mes||1)-1];
-  const totalQtd=m.total.qtd||0;
-  const totalValor=m.total.valor||0;
-  const roasPago=m.total.roas||0;
-  const convPago=m.total.conv||0;
-  const investPago=m.total.invest||0;
-  const ticket=totalQtd>0?totalValor/totalQtd:0;
-
+  const totalQtd=m.total.qtd||0,totalValor=m.total.valor||0;
+  const roasPago=m.total.roas||0,convPago=m.total.conv||0;
+  const investPago=m.total.invest||0,ticket=totalQtd>0?totalValor/totalQtd:0;
   document.getElementById('v-roas-pill').textContent=roasPago>0?'ROAS '+roasPago.toFixed(2)+'x':'ROAS —';
   document.getElementById('v-qtd').textContent=totalQtd;
   document.getElementById('v-receita').textContent=fRk(totalValor)+' em receita';
@@ -398,8 +574,6 @@ function renderVendas(data){
   document.getElementById('v-conv').textContent=convPago>0?convPago+'% conv lead→venda':'—';
   document.getElementById('v-ticket').textContent=ticket>0?fRk(ticket):'—';
   document.getElementById('v-invest').textContent=investPago>0?fRk(investPago)+' investido':'—';
-
-  // Canais pagos — Google / Meta / WA
   const pagos=[
     {k:'google',nome:'Google',cor:'var(--azul-g)',d:m.google},
     {k:'meta',  nome:'Meta',  cor:'var(--roxo-m)',d:m.meta},
@@ -407,24 +581,13 @@ function renderVendas(data){
   ];
   document.getElementById('v-canais-pagos').innerHTML=pagos.map(c=>`
     <div class="vcanal" style="--cc:${c.cor}">
-      <div class="vcanal-topo">
-        <span class="vcanal-nome">${c.nome}</span>
-        ${c.d.roas>0?'<span class="vcanal-roas">'+c.d.roas+'x</span>':''}
-      </div>
+      <div class="vcanal-topo"><span class="vcanal-nome">${c.nome}</span>${c.d.roas>0?'<span class="vcanal-roas">'+c.d.roas+'x</span>':''}</div>
       <div class="vcanal-qtd">${c.d.qtd}</div>
       <div class="vcanal-info">${fRk(c.d.valor)}${c.d.conv>0?' · '+c.d.conv+'% conv':''}</div>
     </div>`).join('');
-
-  // Canais orgânicos / NR
-  const orgs=[
-    {nome:'🌿 Orgânico',      d:m.org},
-    {nome:'◦ Não rastreado', d:m.nr}
-  ];
-  document.getElementById('v-canais-org').innerHTML=orgs.map(c=>`
-    <div class="vorg">
-      <span class="vorg-nome">${c.nome}</span>
-      <span class="vorg-val">${c.d.qtd} vendas · ${fRk(c.d.valor)}</span>
-    </div>`).join('');
+  document.getElementById('v-canais-org').innerHTML=[
+    {nome:'🌿 Orgânico',d:m.org},{nome:'◦ Não rastreado',d:m.nr}
+  ].map(c=>`<div class="vorg"><span class="vorg-nome">${c.nome}</span><span class="vorg-val">${c.d.qtd} vendas · ${fRk(c.d.valor)}</span></div>`).join('');
 }
 
 loadAll();
