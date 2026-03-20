@@ -42,7 +42,7 @@ main{position:relative;z-index:1;padding:26px 32px 48px;max-width:1600px;margin:
 .qv-dot{width:6px;height:6px;border-radius:50%;background:var(--qc,var(--turquesa));flex-shrink:0}
 .qv-canal{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--cinza3)}
 .qv-periods{display:grid;grid-template-columns:repeat(3,1fr)}
-.qv-period{padding:10px 12px 12px;border-right:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;gap:3px}
+.qv-period{padding:10px 12px 12px;border-right:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;gap:3px;min-width:0;overflow:hidden}
 .qv-period:last-child{border-right:none}
 .qv-period-label{font-size:9px;color:var(--cinza4);text-transform:uppercase;letter-spacing:.6px}
 .qv-val{font-family:'Inter',sans-serif;font-weight:700;font-size:22px;line-height:1;letter-spacing:-0.3px;color:var(--branco)}
@@ -165,14 +165,14 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
   <div id="error-msg"></div>
 
   <!-- ══ VISÃO RÁPIDA ══════════════════════════════════════════ -->
-  <div class="section-label fade-up d0">Visão Rápida — <span id="lbl-hoje" style="color:var(--cinza3);font-weight:400;letter-spacing:0;text-transform:none;font-family:'DM Mono',monospace;font-size:11px">—</span></div>
+  <div class="section-label fade-up d0">Visão Rápida — <span id="lbl-hoje" style="color:var(--cinza3);font-weight:400;letter-spacing:0;text-transform:none;font-family:'DM Mono',monospace;font-size:11px">D-1 a D-3</span></div>
   <div class="quickview-grid fade-up d0">
 
     <div class="qv-card qv-google">
       <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">Google Ads</span></div>
       <div class="qv-periods">
-        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qg-hoje">—</div><div class="qv-sub" id="qg-hoje-sub"></div></div>
-        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qg-ontem">—</div><div class="qv-sub" id="qg-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-1</div><div class="qv-val" id="qg-hoje">—</div><div class="qv-sub" id="qg-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-2</div><div class="qv-val" id="qg-ontem">—</div><div class="qv-sub" id="qg-ontem-sub"></div></div>
         <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qg-3d">—</div><div class="qv-sub" id="qg-3d-sub"></div></div>
       </div>
     </div>
@@ -180,8 +180,8 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
     <div class="qv-card qv-meta">
       <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">Meta Ads</span></div>
       <div class="qv-periods">
-        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qm-hoje">—</div><div class="qv-sub" id="qm-hoje-sub"></div></div>
-        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qm-ontem">—</div><div class="qv-sub" id="qm-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-1</div><div class="qv-val" id="qm-hoje">—</div><div class="qv-sub" id="qm-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-2</div><div class="qv-val" id="qm-ontem">—</div><div class="qv-sub" id="qm-ontem-sub"></div></div>
         <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qm-3d">—</div><div class="qv-sub" id="qm-3d-sub"></div></div>
       </div>
     </div>
@@ -189,8 +189,8 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
     <div class="qv-card qv-wa">
       <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">WhatsApp</span></div>
       <div class="qv-periods">
-        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qw-hoje">—</div><div class="qv-sub" id="qw-hoje-sub"></div></div>
-        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qw-ontem">—</div><div class="qv-sub" id="qw-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-1</div><div class="qv-val" id="qw-hoje">—</div><div class="qv-sub" id="qw-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-2</div><div class="qv-val" id="qw-ontem">—</div><div class="qv-sub" id="qw-ontem-sub"></div></div>
         <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qw-3d">—</div><div class="qv-sub" id="qw-3d-sub"></div></div>
       </div>
     </div>
@@ -198,8 +198,8 @@ tfoot td:first-child{text-align:left;font-family:'DM Sans',sans-serif;font-size:
     <div class="qv-card qv-total">
       <div class="qv-header"><div class="qv-dot"></div><span class="qv-canal">Total Geral</span></div>
       <div class="qv-periods">
-        <div class="qv-period"><div class="qv-period-label">Hoje</div><div class="qv-val" id="qt-hoje">—</div><div class="qv-sub" id="qt-hoje-sub"></div></div>
-        <div class="qv-period"><div class="qv-period-label">Ontem</div><div class="qv-val" id="qt-ontem">—</div><div class="qv-sub" id="qt-ontem-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-1</div><div class="qv-val" id="qt-hoje">—</div><div class="qv-sub" id="qt-hoje-sub"></div></div>
+        <div class="qv-period"><div class="qv-period-label">D-2</div><div class="qv-val" id="qt-ontem">—</div><div class="qv-sub" id="qt-ontem-sub"></div></div>
         <div class="qv-period"><div class="qv-period-label">3 dias</div><div class="qv-val" id="qt-3d">—</div><div class="qv-sub" id="qt-3d-sub"></div></div>
       </div>
     </div>
@@ -424,27 +424,32 @@ function renderTrafego(data){
   renderMensal(diasMes,mesAtual);
 }
 
-// ── Visão Rápida ─────────────────────────────────────────────────
+// ── Visão Rápida — trabalha com D-1, D-2, D-3 (sem dados de hoje) ──
 function renderVisaoRapida(rows, M){
   const hoje=new Date();
   const fmt=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-  const dHoje  = fmt(hoje);
-  const dOntem = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-1));
-  const d2dias = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-2));
 
-  const rH = rows.find(r=>r.data===dHoje);
-  const rO = rows.find(r=>r.data===dOntem);
-  const r2 = rows.find(r=>r.data===d2dias);
+  // D-1 = ontem, D-2 = anteontem, D-3 = 3 dias atrás
+  const dD1 = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-1));
+  const dD2 = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-2));
+  const dD3 = fmt(new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-3));
 
-  document.getElementById('lbl-hoje').textContent=`${hoje.getDate()}/${hoje.getMonth()+1}/${hoje.getFullYear()}`;
+  const rD1 = rows.find(r=>r.data===dD1);
+  const rD2 = rows.find(r=>r.data===dD2);
+  const rD3 = rows.find(r=>r.data===dD3);
 
-  setQV('g', rH?.gLeads??null, rO?.gLeads??null, [rH,rO,r2], r=>(r?.gLeads||0), M.google.pisoDia, M.google.tetoDia);
-  setQV('m', rH?.mLeads??null, rO?.mLeads??null, [rH,rO,r2], r=>(r?.mLeads||0), M.meta.pisoDia,   M.meta.tetoDia);
-  setQV('w', rH?.wLeads??null, rO?.wLeads??null, [rH,rO,r2], r=>(r?.wLeads||0), M.wa.pisoDia,     M.wa.tetoDia);
+  // Label dinâmico: mostra a data de D-1 como referência
+  const d1date = new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()-1);
+  document.getElementById('lbl-hoje').textContent=`referência: ${d1date.getDate()}/${d1date.getMonth()+1} (D-1)`;
+
+  // qg-hoje = D-1, qg-ontem = D-2, qg-3d = acumulado D-1+D-2+D-3
+  setQV('g', rD1?.gLeads??null, rD2?.gLeads??null, [rD1,rD2,rD3], r=>(r?.gLeads||0), M.google.pisoDia, M.google.tetoDia);
+  setQV('m', rD1?.mLeads??null, rD2?.mLeads??null, [rD1,rD2,rD3], r=>(r?.mLeads||0), M.meta.pisoDia,   M.meta.tetoDia);
+  setQV('w', rD1?.wLeads??null, rD2?.wLeads??null, [rD1,rD2,rD3], r=>(r?.wLeads||0), M.wa.pisoDia,     M.wa.tetoDia);
 
   // Total: usa totLeads ou soma dos canais
   const totFn = r => r ? (r.totLeads || r.gLeads+r.mLeads+r.wLeads) : 0;
-  setQV('t', rH?totFn(rH):null, rO?totFn(rO):null, [rH,rO,r2], totFn, M.total.pisoDia, M.total.tetoDia);
+  setQV('t', rD1?totFn(rD1):null, rD2?totFn(rD2):null, [rD1,rD2,rD3], totFn, M.total.pisoDia, M.total.tetoDia);
 }
 
 function setQV(id, vHoje, vOntem, rows3, fn, piso, teto){
